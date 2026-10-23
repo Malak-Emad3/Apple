@@ -178,7 +178,7 @@ body {
 .landing .img {
     position: absolute;
     right: 9%;
-    bottom: -40px;
+    bottom: -80px;
     z-index: 1;
     display: flex;
     justify-content: center;
