@@ -124,3 +124,11 @@ body{
     
     transform: scale(1.2);
 }
+
+body {
+    background-image: url('images/back-pic.png') !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
