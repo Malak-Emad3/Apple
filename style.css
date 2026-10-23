@@ -6,14 +6,13 @@
 :root{
     --theme-color: #555;
 }
-.container{
-    background: radial-gradient(circle at right, rgba(136,136,136,.25), #000 65%);
+ .container{
+    background: transparent !important;
     min-height: 100vh;
     width: 100%;
     overflow: hidden;
     transition: .5s;
 }
-
 body{
     color: #fff;
 }
@@ -131,4 +130,9 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+ 
+main, container, .container, .content, section {
+    background: transparent !important;
 }
