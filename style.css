@@ -1,4 +1,4 @@
- * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -24,6 +24,7 @@ body {
     min-height: 100vh;
     width: 100%;
     overflow: hidden;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -71,12 +72,13 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: -20px;
+    position: relative;
+    min-height: 70vh;
 }
 
 .landing .content {
-    flex: 1;
-    max-width: 550px;
+    max-width: 500px;
+    z-index: 2;
 }
 
 .landing .content .subtitle {
@@ -88,7 +90,7 @@ body {
 }
 
 .landing .content h1 {
-    font-size: 52px;
+    font-size: 50px;
     color: #2b3628 !important;
     font-weight: 900;
     line-height: 1.1;
@@ -124,19 +126,17 @@ body {
 }
 
 .landing .img {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 40px;
+    position: absolute;
+    right: 120px;
+    bottom: 20px;
+    z-index: 1;
 }
 
 .landing .img img {
-    width: 260px;
+    width: 210px;
     height: auto;
     transition: .5s;
-    margin-top: -30px;
-    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.25));
+    filter: drop-shadow(0 15px 20px rgba(0,0,0,0.3));
 }
 
 .footer {
@@ -145,6 +145,7 @@ body {
     align-items: center;
     gap: 15px;
     padding-bottom: 20px;
+    z-index: 2;
 }
 
 .footer img {
