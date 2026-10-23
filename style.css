@@ -125,19 +125,22 @@ body {
     transform: translateY(-2px);
 }
 
+ 
 .landing .img {
     position: absolute;
-    right: 120px;
-    bottom: 20px;
+    right: 8%;
+    bottom: -20px;
     z-index: 1;
 }
 
 .landing .img img {
     width: 210px;
     height: auto;
+    display: block;
     transition: .5s;
-    filter: drop-shadow(0 15px 20px rgba(0,0,0,0.3));
+    filter: drop-shadow(0 18px 15px rgba(0, 0, 0, 0.35));
 }
+
 
 .footer {
     display: flex;
