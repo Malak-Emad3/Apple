@@ -366,12 +366,16 @@ nav ul li a.active::after {
     white-space: normal;
   }
 
-  .hero-image {
-    right: 3%;
-    width: 36%;
-    height: 52%;
-    bottom: 90px;
-  }
+.hero-image {
+  position: absolute;
+  right: 9%;
+  bottom: -5px;
+  width: 32%;
+  height: 65%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 2;
 }
 
 @media (max-width: 600px) {
