@@ -1,15 +1,22 @@
-let img = document.querySelector('.imge');
-let container = document.querySelector('.container');
+ document.addEventListener("DOMContentLoaded", () => {
+  const thumbs = document.querySelectorAll(".thumb");
+  const mainPhone = document.getElementById("main-phone");
 
+  thumbs.forEach((thumb) => {
+    thumb.addEventListener("click", () => {
+      thumbs.forEach((t) => t.classList.remove("active"));
+      thumb.classList.add("active");
 
-function Phones(src){
-    img.src = src;
-}
+      const newImgSrc = thumb.getAttribute("data-img");
+      
+      mainPhone.style.opacity = "0";
+      mainPhone.style.transform = "scale(0.95)";
 
-function Colors(color){
-    container.style.background = color;
-}
-
-function Hover(color){
-    document.documentElement.style.setProperty('--theme-color', color);
-}
+      setTimeout(() => {
+        mainPhone.src = newImgSrc;
+        mainPhone.style.opacity = "1";
+        mainPhone.style.transform = "scale(1)";
+      }, 200);
+    });
+  });
+});
