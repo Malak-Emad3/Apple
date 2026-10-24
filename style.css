@@ -402,10 +402,10 @@ nav ul li a.active::after {
     bottom: 100px;
   }
 
-  .footer {
-    bottom: 18px;
-    gap: 10px;
-  }
+ 
+ .footer {
+  bottom: 45px;
+}
 
   .footer .thumb {
     width: 39px;
