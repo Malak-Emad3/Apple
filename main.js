@@ -10,7 +10,7 @@
       const newImgSrc = thumb.getAttribute("data-img");
       
       mainPhone.style.opacity = "0";
-      mainPhone.style.transform = "scale(0.95)";
+      mainPhone.style.transform = "scale(0.96)";
 
       setTimeout(() => {
         mainPhone.src = newImgSrc;
