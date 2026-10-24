@@ -369,7 +369,7 @@ nav ul li a.active::after {
 .hero-image {
   position: absolute;
   right: 9%;
-  bottom: -50px;
+  bottom: 100px;
   width: 32%;
   height: 65%;
   display: flex;
