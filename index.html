@@ -1,9 +1,8 @@
- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>iPhone 13 Pro Max</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +15,7 @@
     <div class="logo">
       <img src="images/logo.png" alt="Apple Logo">
     </div>
+
     <nav>
       <ul>
         <li><a href="#" class="active">Home</a></li>
@@ -28,55 +28,88 @@
   </header>
 
   <main class="hero-container">
-    
+
     <div class="hero-text">
       <span class="sub-title">THE BEST IPHONE YET</span>
-      <h1 class="main-title">iPhone 13 <span class="highlight">Pro Max</span></h1>
+
+      <h1 class="main-title">
+        iPhone 13 <span class="highlight">Pro Max</span>
+      </h1>
+
       <p class="description">
         A powerful camera. A faster chip.<br>
         A brighter display. A premium experience.<br>
         Designed for those who want more.
       </p>
+
       <a href="#" class="btn-explore">Explore Products &rarr;</a>
     </div>
 
     <div class="hero-image">
-      <img id="main-phone" class="phone-styled" src="images/main-pic.png" alt="Four iPhone 13 Pro Max colors">
+      <img
+        id="main-phone"
+        class="phone-styled"
+        src="images/main-pic.png"
+        data-default-image="images/main-pic.png"
+        alt="Four iPhone 13 Pro Max colors"
+      >
     </div>
 
   </main>
 
-  <div class="footer">
+  <div class="footer" aria-label="Choose iPhone color">
+
     <img
       class="thumb"
       data-img="images/1.png"
+      data-color="#C7CBD1"
       src="images/1.png"
       alt="iPhone Color 1"
+      role="button"
+      tabindex="0"
+      aria-label="Choose iPhone color 1"
+      aria-pressed="false"
     >
 
     <img
       class="thumb"
       data-img="images/2.png"
+      data-color="#151923"
       src="images/2.png"
       alt="iPhone Color 2"
+      role="button"
+      tabindex="0"
+      aria-label="Choose iPhone color 2"
+      aria-pressed="false"
     >
 
     <img
       class="thumb"
       data-img="images/3.png"
+      data-color="#D8B77A"
       src="images/3.png"
       alt="iPhone Color 3"
+      role="button"
+      tabindex="0"
+      aria-label="Choose iPhone color 3"
+      aria-pressed="false"
     >
 
     <img
       class="thumb"
       data-img="images/4.png"
+      data-color="#A78BFA"
       src="images/4.png"
       alt="iPhone Color 4"
+      role="button"
+      tabindex="0"
+      aria-label="Choose iPhone color 4"
+      aria-pressed="false"
     >
+
   </div>
 
   <script src="main.js"></script>
- 
+
 </body>
 </html>
