@@ -1,11 +1,9 @@
- 
-document.addEventListener("DOMContentLoaded", () => {
+ document.addEventListener("DOMContentLoaded", () => {
   const thumbs = document.querySelectorAll(".thumb");
   const mainPhone = document.getElementById("main-phone");
   const navLinks = document.querySelectorAll("nav ul li a");
 
   const allPhonesImage = "images/main-pic.png";
-
   const defaultGlow = "#278BFF";
 
   const colorGlows = [
@@ -54,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
       window.setTimeout(() => {
         mainPhone.src = imagePath;
         mainPhone.style.opacity = "1";
-      }, 120);
+      }, 150);
     };
 
     newImage.onerror = () => {
@@ -109,7 +107,13 @@ document.addEventListener("DOMContentLoaded", () => {
   updateGlow(defaultGlow);
 
   navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", (event) => {
+      const href = link.getAttribute("href");
+
+      if (!href || href === "#") {
+        event.preventDefault();
+      }
+
       navLinks.forEach((item) => {
         item.classList.remove("active");
       });
