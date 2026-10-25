@@ -107,7 +107,7 @@ nav ul li a.active::after {
 .hero-text {
   position: relative;
   z-index: 3;
-  width: 57%;
+  width: 55%;
   max-width: 760px;
   margin-top: -15px;
 }
@@ -169,44 +169,57 @@ nav ul li a.active::after {
 /* Main phone display */
 .hero-image {
   position: absolute;
-  right: 7%;
-  bottom: 18px;
-  width: 40%;
-  height: 84%;
+  right: 3%;
+  bottom: 24px;
+  width: 47%;
+  height: 82%;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   z-index: 2;
   isolation: isolate;
-  perspective: 1200px;
 }
 
 .phone-styled {
   position: relative;
   display: block;
-  width: auto;
+  width: 100%;
   height: 100%;
   max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
-  object-position: center bottom;
-  transform-origin: center bottom;
-  transform: perspective(1200px) rotateY(-22deg) rotateZ(-3deg) scale(1.12);
+  object-position: center;
+  transform-origin: center center;
   filter:
-    drop-shadow(12px 14px 14px rgba(0, 0, 0, 0.55))
-    drop-shadow(0 0 24px var(--phone-glow));
-  transition: opacity 0.25s ease, filter 0.3s ease;
+    drop-shadow(0 12px 15px rgba(0, 0, 0, 0.45))
+    drop-shadow(0 0 22px var(--phone-glow));
+  transition:
+    opacity 0.25s ease,
+    filter 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Keep the four-phone image straight */
+.phone-styled[src="images/main-pic.png"] {
+  transform: scale(1);
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.35));
+}
+
+/* Give the selected phone a subtle 3D angle */
+.phone-styled:not([src="images/main-pic.png"]) {
+  transform: perspective(1200px) rotateY(-8deg) rotateZ(-1deg) scale(1.04);
 }
 
 .hero-image::after {
   content: '';
   position: absolute;
-  bottom: 1px;
+  bottom: 2%;
   left: 18%;
   width: 64%;
   height: 16px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.7);
-  filter: blur(11px);
+  background: rgba(0, 0, 0, 0.65);
+  filter: blur(12px);
   z-index: -1;
   pointer-events: none;
 }
@@ -238,7 +251,9 @@ nav ul li a.active::after {
   border-radius: 10px;
   background: rgba(5, 13, 30, 0.88);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
-  transition: transform 0.25s ease, border-color 0.25s ease,
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
     box-shadow 0.25s ease;
 }
 
@@ -271,7 +286,7 @@ nav ul li a.active::after {
   }
 
   .hero-text {
-    width: 58%;
+    width: 53%;
   }
 
   .main-title {
@@ -279,14 +294,14 @@ nav ul li a.active::after {
   }
 
   .hero-image {
-    right: 4%;
-    width: 36%;
+    right: 2%;
+    width: 46%;
     height: 72%;
-    bottom: 22px;
+    bottom: 28px;
   }
 
-  .phone-styled {
-    transform: perspective(1000px) rotateY(-18deg) rotateZ(-2deg) scale(1.06);
+  .phone-styled:not([src="images/main-pic.png"]) {
+    transform: perspective(1000px) rotateY(-7deg) rotateZ(-1deg) scale(1.02);
   }
 }
 
@@ -343,15 +358,18 @@ nav ul li a.active::after {
     position: relative;
     right: auto;
     bottom: auto;
-    width: min(85%, 390px);
-    height: 390px;
+    width: min(100%, 650px);
+    height: clamp(260px, 48vw, 390px);
     flex-shrink: 0;
   }
 
   .phone-styled {
+    width: 100%;
     height: 100%;
-    max-width: 100%;
-    transform: perspective(1200px) rotateY(-14deg) rotateZ(-2deg) scale(1.04);
+  }
+
+  .phone-styled:not([src="images/main-pic.png"]) {
+    transform: perspective(1000px) rotateY(-6deg) rotateZ(-1deg) scale(1.02);
   }
 
   .footer {
@@ -369,7 +387,7 @@ nav ul li a.active::after {
   header {
     padding: 22px 5% 0;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
   }
 
   .logo img {
@@ -377,7 +395,7 @@ nav ul li a.active::after {
   }
 
   nav ul {
-    gap: 6px 12px;
+    gap: 6px 10px;
     justify-content: flex-end;
   }
 
@@ -387,7 +405,7 @@ nav ul li a.active::after {
   }
 
   .hero-container {
-    padding: 48px 6% 20px;
+    padding: 48px 5% 20px;
     gap: 25px;
   }
 
@@ -415,13 +433,12 @@ nav ul li a.active::after {
   }
 
   .hero-image {
-    width: min(88%, 320px);
-    height: 320px;
+    width: 100%;
+    height: clamp(220px, 65vw, 310px);
   }
 
-  .phone-styled {
-    max-height: 320px;
-    transform: perspective(1000px) rotateY(-10deg) rotateZ(-1deg) scale(1.02);
+  .phone-styled:not([src="images/main-pic.png"]) {
+    transform: perspective(900px) rotateY(-4deg) scale(1.01);
   }
 
   .footer {
@@ -440,7 +457,7 @@ nav ul li a.active::after {
 @media (max-width: 380px) {
   header {
     align-items: flex-start;
-    gap: 12px;
+    gap: 10px;
   }
 
   .logo img {
@@ -448,7 +465,7 @@ nav ul li a.active::after {
   }
 
   nav ul {
-    gap: 5px 9px;
+    gap: 5px 8px;
   }
 
   nav ul li a {
@@ -460,11 +477,7 @@ nav ul li a.active::after {
   }
 
   .hero-image {
-    height: 280px;
-  }
-
-  .phone-styled {
-    max-height: 280px;
+    height: 220px;
   }
 
   .footer {
