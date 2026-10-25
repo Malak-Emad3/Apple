@@ -166,17 +166,19 @@ nav ul li a.active::after {
   box-shadow: 0 0 30px rgba(30, 115, 255, 0.45);
 }
 
+/* Main phone display */
 .hero-image {
   position: absolute;
-  right: 6%;
+  right: 7%;
   bottom: 18px;
-  width: 38%;
-  height: 76%;
+  width: 40%;
+  height: 84%;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   z-index: 2;
   isolation: isolate;
+  perspective: 1200px;
 }
 
 .phone-styled {
@@ -188,19 +190,11 @@ nav ul li a.active::after {
   object-fit: contain;
   object-position: center bottom;
   transform-origin: center bottom;
-
-  /* Static tilt and size */
-  rotate: -2deg;
-  scale: 1.08;
-
+  transform: perspective(1200px) rotateY(-22deg) rotateZ(-3deg) scale(1.12);
   filter:
-    drop-shadow(0 12px 12px rgba(0, 0, 0, 0.55))
-    drop-shadow(0 0 22px var(--phone-glow));
-
-  transition:
-    filter 0.3s ease,
-    opacity 0.25s ease,
-    scale 0.3s ease;
+    drop-shadow(12px 14px 14px rgba(0, 0, 0, 0.55))
+    drop-shadow(0 0 24px var(--phone-glow));
+  transition: opacity 0.25s ease, filter 0.3s ease;
 }
 
 .hero-image::after {
@@ -217,6 +211,7 @@ nav ul li a.active::after {
   pointer-events: none;
 }
 
+/* Color selector */
 .footer {
   position: absolute;
   left: 50%;
@@ -243,9 +238,7 @@ nav ul li a.active::after {
   border-radius: 10px;
   background: rgba(5, 13, 30, 0.88);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
+  transition: transform 0.25s ease, border-color 0.25s ease,
     box-shadow 0.25s ease;
 }
 
@@ -288,13 +281,12 @@ nav ul li a.active::after {
   .hero-image {
     right: 4%;
     width: 36%;
-    height: 68%;
+    height: 72%;
     bottom: 22px;
   }
 
   .phone-styled {
-    scale: 1.04;
-    rotate: -1.5deg;
+    transform: perspective(1000px) rotateY(-18deg) rotateZ(-2deg) scale(1.06);
   }
 }
 
@@ -351,7 +343,7 @@ nav ul li a.active::after {
     position: relative;
     right: auto;
     bottom: auto;
-    width: min(80%, 390px);
+    width: min(85%, 390px);
     height: 390px;
     flex-shrink: 0;
   }
@@ -359,8 +351,7 @@ nav ul li a.active::after {
   .phone-styled {
     height: 100%;
     max-width: 100%;
-    rotate: -1.5deg;
-    scale: 1.02;
+    transform: perspective(1200px) rotateY(-14deg) rotateZ(-2deg) scale(1.04);
   }
 
   .footer {
@@ -430,8 +421,7 @@ nav ul li a.active::after {
 
   .phone-styled {
     max-height: 320px;
-    rotate: -1deg;
-    scale: 1.02;
+    transform: perspective(1000px) rotateY(-10deg) rotateZ(-1deg) scale(1.02);
   }
 
   .footer {
@@ -487,7 +477,7 @@ nav ul li a.active::after {
   }
 }
 
-/* Respect reduced-motion preferences */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
