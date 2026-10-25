@@ -4,53 +4,45 @@ document.addEventListener("DOMContentLoaded", () => {
   const mainPhone = document.getElementById("main-phone");
   const navLinks = document.querySelectorAll("nav ul li a");
 
-  if (!mainPhone) {
-    console.error("Main phone image not found.");
-    return;
-  }
+  const allPhonesImage = "images/main-pic.png";
+
+  const defaultGlow = "#278BFF";
 
   const colorGlows = [
-    "#278BFF",
     "#C7CBD1",
     "#151923",
     "#F4A6B8",
     "#A78BFA"
   ];
 
-  function updatePhoneGlow(thumb, index) {
-    const customColor = thumb.dataset.color;
-    const glowColor = customColor || colorGlows[index % colorGlows.length];
+  if (!mainPhone) {
+    console.error("Main phone image not found.");
+    return;
+  }
 
+  function updateGlow(color) {
     document.documentElement.style.setProperty(
       "--phone-glow",
-      glowColor
+      color
     );
 
     document.documentElement.style.setProperty(
       "--accent",
-      glowColor
+      color
     );
   }
 
-  function selectPhoneColor(thumb, index) {
-    const newImgSrc = thumb.dataset.img;
+  function updateActiveThumb(selectedThumb = null) {
+    thumbs.forEach((thumb) => {
+      const isActive = thumb === selectedThumb;
 
-    if (!newImgSrc) {
-      console.error("Image path missing from thumbnail.");
-      return;
-    }
-
-    thumbs.forEach((item) => {
-      item.classList.remove("active");
-      item.removeAttribute("aria-pressed");
+      thumb.classList.toggle("active", isActive);
+      thumb.setAttribute("aria-pressed", String(isActive));
     });
+  }
 
-    thumb.classList.add("active");
-    thumb.setAttribute("aria-pressed", "true");
-
-    updatePhoneGlow(thumb, index);
-
-    if (mainPhone.getAttribute("src") === newImgSrc) {
+  function changeMainImage(imagePath) {
+    if (mainPhone.getAttribute("src") === imagePath) {
       return;
     }
 
@@ -60,17 +52,40 @@ document.addEventListener("DOMContentLoaded", () => {
       mainPhone.style.opacity = "0";
 
       window.setTimeout(() => {
-        mainPhone.src = newImgSrc;
+        mainPhone.src = imagePath;
         mainPhone.style.opacity = "1";
       }, 120);
     };
 
     newImage.onerror = () => {
-      console.error("Failed to load image:", newImgSrc);
+      console.error("Failed to load image:", imagePath);
       mainPhone.style.opacity = "1";
     };
 
-    newImage.src = newImgSrc;
+    newImage.src = imagePath;
+  }
+
+  function selectPhoneColor(thumb, index) {
+    const imagePath = thumb.dataset.img;
+
+    if (!imagePath) {
+      console.error("Image path missing from thumbnail.");
+      return;
+    }
+
+    if (thumb.classList.contains("active")) {
+      updateActiveThumb();
+      changeMainImage(allPhonesImage);
+      updateGlow(defaultGlow);
+      return;
+    }
+
+    const color = thumb.dataset.color ||
+      colorGlows[index % colorGlows.length];
+
+    updateActiveThumb(thumb);
+    updateGlow(color);
+    changeMainImage(imagePath);
   }
 
   thumbs.forEach((thumb, index) => {
@@ -90,19 +105,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const initialThumb = Array.from(thumbs).find((thumb) => {
-    return thumb.dataset.img === mainPhone.getAttribute("src");
-  }) || thumbs[0];
-
-  if (initialThumb) {
-    const initialIndex = Array.from(thumbs).indexOf(initialThumb);
-
-    thumbs.forEach((thumb) => thumb.classList.remove("active"));
-    initialThumb.classList.add("active");
-    initialThumb.setAttribute("aria-pressed", "true");
-
-    updatePhoneGlow(initialThumb, initialIndex);
-  }
+  updateActiveThumb();
+  updateGlow(defaultGlow);
 
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
@@ -117,12 +121,20 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateResponsiveState() {
     const width = window.innerWidth;
 
-    document.body.classList.toggle("mobile-screen", width <= 600);
+    document.body.classList.toggle(
+      "mobile-screen",
+      width <= 600
+    );
+
     document.body.classList.toggle(
       "tablet-screen",
       width > 600 && width <= 900
     );
-    document.body.classList.toggle("desktop-screen", width > 900);
+
+    document.body.classList.toggle(
+      "desktop-screen",
+      width > 900
+    );
   }
 
   updateResponsiveState();
