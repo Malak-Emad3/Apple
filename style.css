@@ -1,5 +1,4 @@
- 
-:root {
+ :root {
   --phone-glow: #278BFF;
   --accent: #328BFF;
   --text-muted: #C4D0E2;
@@ -107,8 +106,8 @@ nav ul li a.active::after {
 .hero-text {
   position: relative;
   z-index: 3;
-  width: 55%;
-  max-width: 760px;
+  width: 48%;
+  max-width: 650px;
   margin-top: -15px;
 }
 
@@ -154,7 +153,7 @@ nav ul li a.active::after {
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
-  border: 1px solid #328BFF;
+  border: 1px solid var(--accent);
   border-radius: 40px;
   background: linear-gradient(110deg, #087DFA, #5149DF);
   box-shadow: 0 0 22px rgba(30, 115, 255, 0.25);
@@ -163,15 +162,15 @@ nav ul li a.active::after {
 
 .btn-explore:hover {
   transform: translateY(-3px);
-  box-shadow: 0 0 30px rgba(30, 115, 255, 0.45);
+  box-shadow: 0 0 30px var(--phone-glow);
 }
 
 /* Main phone display */
 .hero-image {
   position: absolute;
   right: 3%;
-  bottom: 24px;
-  width: 47%;
+  bottom: 25px;
+  width: 49%;
   height: 82%;
   display: flex;
   align-items: center;
@@ -189,9 +188,9 @@ nav ul li a.active::after {
   max-height: 100%;
   object-fit: contain;
   object-position: center;
-  transform-origin: center center;
+  transform-origin: center;
   filter:
-    drop-shadow(0 12px 15px rgba(0, 0, 0, 0.45))
+    drop-shadow(0 12px 18px rgba(0, 0, 0, 0.4))
     drop-shadow(0 0 22px var(--phone-glow));
   transition:
     opacity 0.25s ease,
@@ -199,21 +198,21 @@ nav ul li a.active::after {
     transform 0.3s ease;
 }
 
-/* Keep the four-phone image straight */
+/* Main image showing all four phones */
 .phone-styled[src="images/main-pic.png"] {
   transform: scale(1);
-  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.4));
 }
 
-/* Give the selected phone a subtle 3D angle */
+/* Individual selected phone */
 .phone-styled:not([src="images/main-pic.png"]) {
-  transform: perspective(1200px) rotateY(-8deg) rotateZ(-1deg) scale(1.04);
+  transform: perspective(1200px) rotateY(-8deg) scale(1.04);
 }
 
 .hero-image::after {
   content: '';
   position: absolute;
-  bottom: 2%;
+  bottom: 3%;
   left: 18%;
   width: 64%;
   height: 16px;
@@ -231,7 +230,6 @@ nav ul li a.active::after {
   bottom: 24px;
   transform: translateX(-50%);
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 14px;
@@ -286,7 +284,7 @@ nav ul li a.active::after {
   }
 
   .hero-text {
-    width: 53%;
+    width: 48%;
   }
 
   .main-title {
@@ -295,13 +293,9 @@ nav ul li a.active::after {
 
   .hero-image {
     right: 2%;
-    width: 46%;
+    width: 48%;
     height: 72%;
     bottom: 28px;
-  }
-
-  .phone-styled:not([src="images/main-pic.png"]) {
-    transform: perspective(1000px) rotateY(-7deg) rotateZ(-1deg) scale(1.02);
   }
 }
 
@@ -369,7 +363,7 @@ nav ul li a.active::after {
   }
 
   .phone-styled:not([src="images/main-pic.png"]) {
-    transform: perspective(1000px) rotateY(-6deg) rotateZ(-1deg) scale(1.02);
+    transform: perspective(1000px) rotateY(-6deg) scale(1.02);
   }
 
   .footer {
