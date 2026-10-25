@@ -398,3 +398,27 @@ nav ul li a.active::after {
     height: 58px;
   }
 }
+
+.phone-styled {
+    rotate: 0deg;
+    transform-origin: center bottom;
+    animation: phoneRound 4s ease-in-out infinite;
+    filter: drop-shadow(0 15px 25px rgba(0, 140, 255, 0.25));
+}
+
+@keyframes phoneRound {
+    0%, 100% {
+        rotate: -2deg;
+    }
+
+    50% {
+        rotate: 2deg;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .phone-styled {
+        animation: none;
+        rotate: 0deg;
+    }
+}
